@@ -26,7 +26,7 @@ class Screen:
         self.clock = pygame.time.Clock()
         self.running = False
 
-    def start():
+    def start(self):
 
         # Window setup
         
@@ -57,13 +57,13 @@ class Screen:
             
             self.update()       # update screen
 
-        if (not (self.quithandler is None)):
+        if (self.quithandler is not None):
             self.quithandler(quitcause)
 
         pygame.display.quit()    # close window
         pygame.quit()   # close game execution
 
-    def stop():
+    def stop(self):
         raise IntCall
 
     def setFullscreen(self, fullsrcn):
