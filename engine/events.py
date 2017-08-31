@@ -1,4 +1,4 @@
-from pygame.locals import *
+import pygame
 
 LEFT_CLICK = 1
 RIGHT_CLICK = 3
@@ -30,13 +30,13 @@ def get():
         if (event.type == pygame.KEYDOWN):
             if (keydown_handler is not None):
                 keydown_handler(event.key)
-        else if (event.type == pygame.QUIT):
+        elif (event.type == pygame.QUIT):
             if (quit_handler is not None):
                 quit_handler()
-        else if (event.type == pygame.MOUSEBUTTONDOWN):
+        elif (event.type == pygame.MOUSEBUTTONDOWN):
             if (mouseclick_handler is not None):
-                mouseclick_handler(event.button)
-        else if (event.type == pygame.MOUSEMOTION):
+                mouseclick_handler(event.button, event.pos)
+        elif (event.type == pygame.MOUSEMOTION):
             if (mousemotion_handler is not None):
                 mousemotion_handler(event.pos)
             
